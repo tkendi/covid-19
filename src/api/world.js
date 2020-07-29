@@ -30,7 +30,7 @@ export const fetchDailyData = async() => {
         }))
         return modifiedData
     }catch(error) {
-
+        console.log(error)
     }
 }
 

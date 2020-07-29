@@ -19,7 +19,7 @@
 }
 
 @media (max-width: 770px) {
-    .card{
+    .card{ 
         margin: 2% 0 !important;
     }
 }

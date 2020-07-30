@@ -4,7 +4,6 @@ import {
   FormControl,
   InputLabel,
   NativeSelect,
-  MenuItem,
 } from "@material-ui/core";
 import styles from "./city.module.css";
 
@@ -22,20 +21,20 @@ class city extends React.Component {
     });
   }
   render() {
-    const data = Array.from(this.state.data);
+    const data = this.state.data;
     return (
       <div>
         <FormControl className={styles.formControl}>
+          <InputLabel id="city-select-label">Region</InputLabel>
           <NativeSelect
             defaultValue=""
             onChange={(e) => this.props.handleNumberChange(e.target.value)}
           >
-            <InputLabel id="city-select-label">Region</InputLabel>
             {data.map((city, i) => {
               return (
-                <MenuItem value={i} key={i}>
+                <option value={i} key={i}>
                   {city}
-                </MenuItem>
+                </option>
               );
             })}
           </NativeSelect>

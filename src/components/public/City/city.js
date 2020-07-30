@@ -1,12 +1,12 @@
 import React from "react";
-import { cityPicker } from "../api";
+import { cityPicker } from "../../../api/korea";
 import {
   FormControl,
   InputLabel,
   NativeSelect,
   MenuItem,
 } from "@material-ui/core";
-import styles from "../styles/city.module.css";
+import styles from "./city.module.css";
 
 class city extends React.Component {
   state = {

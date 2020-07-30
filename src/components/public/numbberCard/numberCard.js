@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { numbers, dateCreate } from "../api";
+import { numbers, dateCreate } from "../../../api/korea";
 import { Typography, Grid, CardContent, Card } from "@material-ui/core";
 import cx from "classnames";
-import styles from "../styles/number.module.css";
+import styles from "./numberCard.module.css";
 
 class numberCard extends Component {
   constructor(props) {

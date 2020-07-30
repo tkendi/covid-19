@@ -2,7 +2,7 @@ import React from "react";
 import City from "../public/City/city";
 import Number from "../public/numbberCard/numberCard";
 import styles from "./korea.module.css";
-import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
 
 class App extends React.Component {
   state = {

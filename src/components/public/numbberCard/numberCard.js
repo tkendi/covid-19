@@ -8,9 +8,9 @@ class numberCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Infected: [],
-      Recover: [],
-      Deaths: [],
+      Infected: 0,
+      Recover: 0,
+      Deaths: 0,
       date: "",
     };
   }
@@ -57,7 +57,7 @@ class numberCard extends Component {
           >
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                전일대비 증가 수
+                Infected
               </Typography>
               <Typography>{this.state.Infected}</Typography>
               <Typography color="textSecondary">{this.state.date}</Typography>
@@ -72,16 +72,16 @@ class numberCard extends Component {
             component={Card}
             xs={"auto"}
             md={"auto"}
-            className={cx(styles.card, styles.confirm)}
+            className={cx(styles.card, styles.recovered)}
           >
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                Number of recoveries from COVID-19
+                Recovers
               </Typography>
               <Typography>{this.state.Recover}</Typography>
               <Typography color="textSecondary">{this.state.date}</Typography>
               <Typography variant="body2">
-                Number of increasing patients
+                Number of recovers by COVID-19
               </Typography>
             </CardContent>
           </Grid>
@@ -91,16 +91,16 @@ class numberCard extends Component {
             component={Card}
             xs={"auto"}
             md={"auto"}
-            className={cx(styles.card, styles.confirm)}
+            className={cx(styles.card, styles.deaths)}
           >
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
-                Number of death caused by COVID-19
+                Deaths
               </Typography>
               <Typography>{this.state.Deaths}</Typography>
               <Typography color="textSecondary">{this.state.date}</Typography>
               <Typography variant="body2">
-                Number of increasing patients
+                Number of patients by COVID-19
               </Typography>
             </CardContent>
           </Grid>

@@ -1,10 +1,6 @@
 import React from "react";
 import { cityPicker } from "../../../api/korea";
-import {
-  FormControl,
-  InputLabel,
-  NativeSelect,
-} from "@material-ui/core";
+import { TextField, MenuItem } from "@material-ui/core";
 import styles from "./city.module.css";
 
 class city extends React.Component {
@@ -24,21 +20,18 @@ class city extends React.Component {
     const data = this.state.data;
     return (
       <div>
-        <FormControl className={styles.formControl}>
-          <InputLabel id="city-select-label">Region</InputLabel>
-          <NativeSelect
-            defaultValue=""
-            onChange={(e) => this.props.handleNumberChange(e.target.value)}
-          >
-            {data.map((city, i) => {
-              return (
-                <option value={i} key={i}>
-                  {city}
-                </option>
-              );
-            })}
-          </NativeSelect>
-        </FormControl>
+        <TextField
+          select
+          label="지역"
+          className={styles.formControl}
+          onChange={(e) => this.props.handleNumberChange(e.target.value)}
+        >
+          {data.map((city, i) => (
+            <MenuItem key={i} value={i}>
+              {city}
+            </MenuItem>
+          ))}
+        </TextField>
       </div>
     );
   }

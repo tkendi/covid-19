@@ -46,13 +46,13 @@ class numberCard extends Component {
 
   render() {
     return (
-      <div>
+      <div className = {styles.form}>
         <Grid container spacing={3} justify="center">
           <Grid
             item
             component={Card}
-            xs={"auto"}
-            md={"auto"}
+            xs={12}
+            md={3}
             className={cx(styles.card, styles.confirm)}
           >
             <CardContent>
@@ -70,8 +70,8 @@ class numberCard extends Component {
           <Grid
             item
             component={Card}
-            xs={"auto"}
-            md={"auto"}
+            xs={12}
+            md={3}
             className={cx(styles.card, styles.recovered)}
           >
             <CardContent>
@@ -89,8 +89,8 @@ class numberCard extends Component {
           <Grid
             item
             component={Card}
-            xs={"auto"}
-            md={"auto"}
+            xs={12}
+            md={3}
             className={cx(styles.card, styles.deaths)}
           >
             <CardContent>

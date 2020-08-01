@@ -19,7 +19,7 @@ class city extends React.Component {
   render() {
     const data = this.state.data;
     return (
-      <div>
+      <div className = {styles.form}>
         <TextField
           select
           label="지역"

@@ -1,5 +1,8 @@
 .formControl {
-    width: 100%;
-    margin-bottom: 30px !important;
-  }
-  
+  width: 100%;
+  margin-bottom: 30px !important;
+}
+
+.form {
+  padding-top: 3em;
+}

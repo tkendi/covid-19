@@ -2,6 +2,10 @@
     margin: 0 2% !important;
 }
 
+.form {
+    padding-top: 5em;
+}
+
 .confirm{
     border-bottom: 10px solid rgba(0, 0, 255, 0.5);
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { numbers, dateCreate } from "../../../api/korea";
 import { Typography, Grid, CardContent, Card } from "@material-ui/core";
 import cx from "classnames";
+import CountUp from "react-countup";
 import styles from "./numberCard.module.css";
 
 class numberCard extends Component {
@@ -46,7 +47,7 @@ class numberCard extends Component {
 
   render() {
     return (
-      <div className = {styles.form}>
+      <div className={styles.form}>
         <Grid container spacing={3} justify="center">
           <Grid
             item
@@ -59,7 +60,14 @@ class numberCard extends Component {
               <Typography color="textSecondary" gutterBottom>
                 Infected
               </Typography>
-              <Typography>{this.state.Infected}</Typography>
+              <Typography>
+                <CountUp
+                  start={0}
+                  end={this.state.Infected}
+                  duration={2.5}
+                  separator=","
+                />
+              </Typography>
               <Typography color="textSecondary">{this.state.date}</Typography>
               <Typography variant="body2">
                 Number of increasing patients
@@ -78,7 +86,14 @@ class numberCard extends Component {
               <Typography color="textSecondary" gutterBottom>
                 Recovers
               </Typography>
-              <Typography>{this.state.Recover}</Typography>
+              <Typography>
+                <CountUp
+                  start={0}
+                  end={this.state.Recover}
+                  duration={2.5}
+                  separator=","
+                />
+              </Typography>
               <Typography color="textSecondary">{this.state.date}</Typography>
               <Typography variant="body2">
                 Number of recovers by COVID-19
@@ -97,10 +112,17 @@ class numberCard extends Component {
               <Typography color="textSecondary" gutterBottom>
                 Deaths
               </Typography>
-              <Typography>{this.state.Deaths}</Typography>
+              <Typography>
+                <CountUp
+                  start={0}
+                  end={this.state.Deaths}
+                  duration={2.5}
+                  separator=","
+                />
+              </Typography>
               <Typography color="textSecondary">{this.state.date}</Typography>
               <Typography variant="body2">
-                Number of patients by COVID-19
+                Number of deaths by COVID-19
               </Typography>
             </CardContent>
           </Grid>

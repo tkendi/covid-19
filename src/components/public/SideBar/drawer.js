@@ -10,9 +10,11 @@ import {
 } from "@material-ui/core";
 import AcUnitIcon from "@material-ui/icons/AcUnit";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
+import HomeIcon from "@material-ui/icons/Home";
 import world from "../../World/world";
 import korea from "../../Korea/korea";
 import { Route } from "react-router-dom";
+import main from "../../Main/main";
 
 const drawerWidth = 240;
 
@@ -51,14 +53,20 @@ export default function SideBar() {
         anchor="left"
       >
         <div className={classes.toolbar} />
+        <ListItem button>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <Link href="/">Home</Link>
+        </ListItem>
         <Divider />
         <List>
-          <ListItem button>
+          {/* <ListItem button>
             <ListItemIcon>
               <AcUnitIcon />
             </ListItemIcon>
             <Link href="/world">World Status</Link>
-          </ListItem>
+          </ListItem> */}
 
           <ListItem button>
             <ListItemIcon>
@@ -68,7 +76,7 @@ export default function SideBar() {
           </ListItem>
         </List>
       </Drawer>
-      <Route path="/world" exact component={world} />
+      <Route path="/" component={world} exact={true} />
       <Route path="/korea" component={korea} />
     </div>
   );

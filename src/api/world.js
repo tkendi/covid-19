@@ -32,7 +32,7 @@ export const fetchDailyData = async() => {
     }catch(error) {
         console.log(error)
     }
-}
+}   
 
 export const fetchCountries = async () => {
     try {

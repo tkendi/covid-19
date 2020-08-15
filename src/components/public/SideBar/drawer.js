@@ -57,7 +57,7 @@ export default function SideBar() {
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <Link href="/">Home</Link>
+          <Link href="/">World Status</Link>
         </ListItem>
         <Divider />
         <List>

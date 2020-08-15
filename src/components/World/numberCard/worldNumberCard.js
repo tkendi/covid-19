@@ -1,11 +1,11 @@
 import React from "react";
-import { numbers } from "../../api/world";
+import {numbers} from '../../../api/world'
 import { Typography, Grid, CardContent, Card } from "@material-ui/core";
 import cx from "classnames";
 import CountUp from "react-countup";
 import styles from "../../style/number.module.css";
 
-class wordNumberCard extends React.Component {
+class WorldNumberCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +29,7 @@ class wordNumberCard extends React.Component {
     });
   }
 
-  async componentDidUpdate() {
+  async componentDidUpdate(prevProps, prevState) {
     if (prevProps.country !== this.props.country) {
       const data = await numbers(this.props.country);
       this.setState({
@@ -85,7 +85,7 @@ class wordNumberCard extends React.Component {
               <Typography>
                 <CountUp
                   start={0}
-                  end={this.state.Recover}
+                  end={this.state.Rate}
                   duration={2.5}
                   separator=","
                 />
@@ -127,3 +127,5 @@ class wordNumberCard extends React.Component {
     );
   }
 }
+
+export default WorldNumberCard;

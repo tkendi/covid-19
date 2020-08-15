@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const date = new Date();
-date.setHours(date.getMinutes() - 40);
+date.setHours(date.getHours() - 1);
 //const hours = date.getHours();
 let startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(
   -2

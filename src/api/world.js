@@ -46,7 +46,7 @@
 import axios from "axios";
 
 const date = new Date();
-date.setHours(date.getHours() - 2);
+date.setHours(date.getHours() - 1);
 
 let startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(
   -2
@@ -93,6 +93,7 @@ export const numbers = async(country) => {
 
     info.date = items[country].createDt.slice(0, 11)
     
+    console.log(info)
     return info
   } catch(e) {
 

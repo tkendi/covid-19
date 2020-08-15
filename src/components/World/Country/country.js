@@ -10,6 +10,7 @@ class Country extends React.Component {
 
   async componentDidMount() {
     const countryData = await cityPicker();
+    console.log(countryData)
     this.setState({
       data: countryData,
     });

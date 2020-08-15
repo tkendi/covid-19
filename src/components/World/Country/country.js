@@ -20,7 +20,6 @@ class country extends React.Component {
         <TextField
           select
           label="region"
-          onChange={(e) => this.props.handleNumberChange(e.target.value)}
         >
           {data.map((city, i) => (
             <MenuItem key={i} value={i}>

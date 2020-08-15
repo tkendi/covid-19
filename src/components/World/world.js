@@ -36,3 +36,32 @@
 // }
 
 // export default word;
+
+
+import React from 'react'
+import Country from './Country/country'
+import coronaImage from '../../images/image.png'
+import CountUp from 'react-countup'
+
+class World extends React.Component {
+    state = {
+        data: "",
+        city: ""
+    }
+
+    handleNumberChange = async (country, number) => {
+        this.setState({
+            data: country
+        })
+    }
+    render() {
+        return (
+            <div>
+                <img src = {coronaImage} alt = "COVID-19" />
+                <Country />
+            </div>
+        )
+    }
+}
+
+export default World

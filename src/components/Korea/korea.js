@@ -1,10 +1,10 @@
 import React from "react";
 import City from "./City/city";
-import Number from "../public/numbberCard/numberCard";
+import Number from "./numberCard/numberCard";
 import styles from "./korea.module.css";
 import coronaImage from '../../images/image.png'
 
-class App extends React.Component {
+class Korea extends React.Component {
   state = {
     data: "",
     city: "",
@@ -27,4 +27,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Korea;

@@ -1,7 +1,7 @@
 import React from "react";
 import { cityPicker } from "../../../api/korea";
 import { TextField, MenuItem } from "@material-ui/core";
-import styles from "./city.module.css";
+import styles from "../../style/picker.module.css"
 
 class city extends React.Component {
   state = {
@@ -22,7 +22,7 @@ class city extends React.Component {
           select
           label="지역"
           className={styles.formControl}
-          onChange={(e) => this.props.handleNumberChange(e.target.value)}
+          onChange={(e) => this.props.handleCityChange(e.target.value)}
         >
           {data.map((city, i) => (
             <MenuItem key={i} value={i}>

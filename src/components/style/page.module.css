@@ -1,8 +1,8 @@
 body {
-    background-color: rgb(250,250,250);
+    background-color: rgb(250, 250, 250);
   }
   
-  .container{
+  .form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,17 +13,18 @@ body {
   .image {
     border: 0;
     margin: 0 auto;
-    padding: 0;
+    padding-top: 3em;
     width: 400px;
     height: 200px;
   }
   
   @media (max-width: 770px) {
-    .container {
-        margin: 0 18%;
+    .form {
+      margin: 0 18%;
     }
   
     .image {
-        width: 100%;
+      width: 100%;
     }
-  } 
+  }
+  

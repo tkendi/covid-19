@@ -1,48 +1,44 @@
-import React, { Component } from "react";
-import { numbers, dateCreate } from "../../../api/korea";
+import React from "react";
+import { numbers } from "../../api/world";
 import { Typography, Grid, CardContent, Card } from "@material-ui/core";
 import cx from "classnames";
 import CountUp from "react-countup";
-import styles from "../../style/number.module.css"
+import styles from "../../style/number.module.css";
 
-class numberCard extends Component {
+class wordNumberCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       Infected: 0,
-      Recover: 0,
+      Rate: 0,
       Deaths: 0,
-      date: "",
+      date: 0,
     };
   }
 
   async componentDidMount() {
     const data = await numbers(this.props.city);
-    const createDt = await dateCreate(this.props.city);
     if (!data) {
-      return "Loading....";
+      return "Loading...";
     }
     this.setState({
-      Infected: data.DPN,
-      Recover: data.Recover,
-      Deaths: data.Death,
-      date: createDt,
+      Infected: data.numbers.DPN,
+      Rate: data.numbers.Rate,
+      Deaths: data.numbers.Death,
+      date: data.date,
     });
-    console.log(data, createDt);
   }
 
-  async componentDidUpdate(prevProps, prevState) {
-    if (prevProps.city !== this.props.city) {
-      const data = await numbers(this.props.city);
-      const createDt = await dateCreate(this.props.city);
+  async componentDidUpdate() {
+    if (prevProps.country !== this.props.country) {
+      const data = await numbers(this.props.country);
       this.setState({
-        Infected: data.DPN,
-        Recover: data.Recover,
-        Deaths: data.Death,
-        date: createDt,
+        Infected: data.numbers.DPN,
+        Rate: data.numbers.Rate,
+        Deaths: data.numbers.Death,
+        date: data.date,
       });
     }
-    console.log(this.state);
   }
 
   render() {
@@ -131,5 +127,3 @@ class numberCard extends Component {
     );
   }
 }
-
-export default numberCard;

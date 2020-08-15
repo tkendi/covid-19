@@ -1,8 +1,9 @@
 import React from "react";
 import { cityPicker } from "../../../api/world";
 import { TextField, MenuItem } from "@material-ui/core";
+import styles from "../../style/picker.module.css";
 
-class country extends React.Component {
+class Country extends React.Component {
   state = {
     data: [],
   };
@@ -16,10 +17,12 @@ class country extends React.Component {
   render() {
     const data = this.state.data;
     return (
-      <React.Fragment>
+      <div className={styles.form}>
         <TextField
           select
           label="region"
+          className={styles.formControl}
+          handleCountryChange={(e) => e.target.value}
         >
           {data.map((city, i) => (
             <MenuItem key={i} value={i}>
@@ -27,9 +30,9 @@ class country extends React.Component {
             </MenuItem>
           ))}
         </TextField>
-      </React.Fragment>
+      </div>
     );
   }
 }
 
-export default country;
+export default Country;

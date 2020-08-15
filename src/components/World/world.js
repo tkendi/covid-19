@@ -37,31 +37,31 @@
 
 // export default word;
 
-
-import React from 'react'
-import Country from './Country/country'
-import coronaImage from '../../images/image.png'
-import CountUp from 'react-countup'
+import React from "react";
+import Country from "./Country/country";
+import coronaImage from "../../images/image.png";
+import styles from "../style/page.module.css";
 
 class World extends React.Component {
-    state = {
-        data: "",
-        city: ""
-    }
+  state = {
+    data: "",
+    city: "",
+  };
 
-    handleNumberChange = async (country, number) => {
-        this.setState({
-            data: country
-        })
-    }
-    render() {
-        return (
-            <div>
-                <img src = {coronaImage} alt = "COVID-19" />
-                <Country />
-            </div>
-        )
-    }
+  handleCountryChange = async (country, number) => {
+    this.setState({
+      data: country,
+    });
+  };
+
+  render() {
+    return (
+      <div className={styles.form}>
+        <img src={coronaImage} alt="COVID-19" className={styles.image} />
+        <Country handleCountryChange={this.handleCountryChange} />
+      </div>
+    );
+  }
 }
 
-export default World
+export default World;

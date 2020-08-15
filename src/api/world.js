@@ -73,3 +73,28 @@ export const cityPicker = async () => {
     console.log(e);
   }
 };
+
+export const numbers = async(country) => {
+  try{
+    const data = await axios.get(url)
+    const items = data.data.response.body.items.item
+    const info = {
+      numbers: {
+        DPN: 0,
+        Death: 0,
+        Rate: 0
+      },
+      date: ""
+    };
+
+    info.numbers.DPN = items[country].natDefCnt
+    info.numbers.Death = items[country].natDeathCnt
+    info.numbers.Rate = items[country].natDeathRate
+
+    info.date = items[country].createDt.slice(0, 11)
+    
+    return info
+  } catch(e) {
+
+  }
+}

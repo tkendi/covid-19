@@ -18,15 +18,12 @@ export const cityPicker = async () => {
     const items = data.data.response.body.items.item;
     const city = [];
 
-    console.log(data);
-
     for (const keys in items) {
       city[keys] = items[keys].gubun;
     }
 
     return Array.from(city);
   } catch (e) {
-    console.log(e);
   }
 };
 
@@ -45,7 +42,6 @@ export const numbers = async (city) => {
 
     return numbers;
   } catch (e) {
-    console.log(e);
   }
 };
 
@@ -60,6 +56,5 @@ export const dateCreate = async (city) => {
 
     return date;
   } catch (e) {
-    console.log(e);
   }
 };

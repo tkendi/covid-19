@@ -32,7 +32,7 @@
 //     }catch(error) {
 //         console.log(error)
 //     }
-// }   
+// }
 
 // export const fetchCountries = async () => {
 //     try {
@@ -43,4 +43,33 @@
 //     }
 // }
 
-import axios from 'axios'
+import axios from "axios";
+
+const date = new Date();
+date.setHours(date.getHours() - 2);
+
+let startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(
+  -2
+)}${("0" + date.getDate()).slice(-2)}`;
+
+let endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
+  "0" + date.getDate()
+).slice(-2)}`;
+
+const url = `/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.REACT_APP_serviceKey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
+
+export const cityPicker = async () => {
+  try {
+    const data = await axios.get(url);
+    const items = data.data.response.body.items.item;
+    const city = [];
+
+    for (const keys in items) {
+      city[keys] = items[keys].nationNm;
+    }
+    
+    return city;
+  } catch (e) {
+    console.log(e);
+  }
+};

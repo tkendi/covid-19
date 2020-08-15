@@ -1,5 +1,5 @@
 import React from "react";
-import City from "../public/City/city";
+import City from "./City/city";
 import Number from "../public/numbberCard/numberCard";
 import styles from "./korea.module.css";
 import coronaImage from '../../images/image.png'
@@ -11,7 +11,6 @@ class App extends React.Component {
   };
 
   handleNumberChange = async (city, number) => {
-    console.log(city);
     this.setState({
       data: city,
     });

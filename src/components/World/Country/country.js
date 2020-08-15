@@ -1,26 +1,25 @@
 import React from "react";
-import { cityPicker } from "../../../api/korea";
+import { cityPicker } from "../../../api/world";
 import { TextField, MenuItem } from "@material-ui/core";
-import styles from "./city.module.css";
 
-class city extends React.Component {
+class country extends React.Component {
   state = {
     data: [],
   };
+
   async componentDidMount() {
-    const cityData = await cityPicker();
+    const countryData = await cityPicker();
     this.setState({
-      data: cityData,
+      data: countryData,
     });
   }
   render() {
     const data = this.state.data;
     return (
-      <div className = {styles.form}>
+      <React.Fragment>
         <TextField
           select
-          label="지역"
-          className={styles.formControl}
+          label="region"
           onChange={(e) => this.props.handleNumberChange(e.target.value)}
         >
           {data.map((city, i) => (
@@ -29,9 +28,9 @@ class city extends React.Component {
             </MenuItem>
           ))}
         </TextField>
-      </div>
+      </React.Fragment>
     );
   }
 }
 
-export default city;
+export default country;

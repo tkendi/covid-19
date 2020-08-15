@@ -1,12 +1,15 @@
 import React from "react";
 import SideBar from './components/public/SideBar/drawer'
+import {cityPicker} from './api/world'
 
-const App = () => {
-  return (
-    <div>
-      <SideBar />
-    </div>
-  );
-};
+class App extends React.Component {
+  render() {
+    return(
+      <React.Fragment>
+        <SideBar />
+      </React.Fragment>
+    )
+  }
+}
 
 export default App;

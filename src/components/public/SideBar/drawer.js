@@ -76,7 +76,7 @@ export default function SideBar() {
           </ListItem>
         </List>
       </Drawer>
-      <Route path="/" component={world} exact={true} />
+      {/* <Route path="/" component={world} exact={true} /> */}
       <Route path="/korea" component={korea} />
     </div>
   );

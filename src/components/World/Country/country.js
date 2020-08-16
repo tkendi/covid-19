@@ -1,15 +1,18 @@
 import React from "react";
-import { cityPicker } from "../../../api/world";
+import { countryPicker } from "../../../api/world";
 import { TextField, MenuItem } from "@material-ui/core";
 import styles from "../../style/picker.module.css";
 
 class Country extends React.Component {
-  state = {
-    data: [],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    }
+  }
 
   async componentDidMount() {
-    const countryData = await cityPicker();
+    const countryData = await countryPicker();
     console.log(countryData);
     this.setState({
       data: countryData,
@@ -25,9 +28,9 @@ class Country extends React.Component {
           className={styles.formControl}
           onChange={(e) => this.props.handleCountryChange(e.target.value)}
         >
-          {data.map((city, i) => (
+          {data.map((country, i) => (
             <MenuItem key={i} value={i}>
-              {city}
+              {country}
             </MenuItem>
           ))}
         </TextField>

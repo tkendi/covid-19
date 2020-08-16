@@ -33,6 +33,7 @@ export const cityPicker = async () => {
       city[keys] = items[keys].gubun;
     }
 
+    console.log(city)
     return Array.from(city);
   } catch (e) {}
 };

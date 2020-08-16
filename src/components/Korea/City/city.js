@@ -15,7 +15,7 @@ class city extends React.Component {
     });
   }
   render() {
-    const data = this.state.data;
+    const data = this.state.data
     return (
       <div className = {styles.form}>
         <TextField

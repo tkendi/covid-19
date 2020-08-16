@@ -79,6 +79,7 @@ export const countryPicker = async () => {
       city[keys] = items[keys].nationNm;
     }
 
+    console.log(city)
     return Array.from(city);
   } catch (e) {
     console.log(e);

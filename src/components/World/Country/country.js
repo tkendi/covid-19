@@ -10,7 +10,7 @@ class Country extends React.Component {
 
   async componentDidMount() {
     const countryData = await cityPicker();
-    console.log(countryData)
+    console.log(countryData);
     this.setState({
       data: countryData,
     });
@@ -23,7 +23,7 @@ class Country extends React.Component {
           select
           label="region"
           className={styles.formControl}
-          handleCountryChange={(e) => e.target.value}
+          onChange={(e) => this.props.handleCountryChange(e.target.value)}
         >
           {data.map((city, i) => (
             <MenuItem key={i} value={i}>

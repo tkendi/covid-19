@@ -10,6 +10,17 @@ let endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
   "0" + date.getDate()
 ).slice(-2)}`;
 
+if (date.getHours() < 12) {
+  startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
+    "0" +
+    (date.getDate() - 1)
+  ).slice(-2)}`;
+  endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
+    "0" +
+    (date.getDate() - 1)
+  ).slice(-2)}`;
+}
+
 const url = `/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=${process.env.REACT_APP_serviceKey}&pageNo=1&numOfRows=10&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
 export const cityPicker = async () => {
@@ -23,8 +34,7 @@ export const cityPicker = async () => {
     }
 
     return Array.from(city);
-  } catch (e) {
-  }
+  } catch (e) {}
 };
 
 export const numbers = async (city) => {
@@ -41,8 +51,7 @@ export const numbers = async (city) => {
     numbers.Recover = items[city].isolClearCnt;
 
     return numbers;
-  } catch (e) {
-  }
+  } catch (e) {}
 };
 
 export const dateCreate = async (city) => {
@@ -55,6 +64,5 @@ export const dateCreate = async (city) => {
     console.log(date);
 
     return date;
-  } catch (e) {
-  }
+  } catch (e) {}
 };

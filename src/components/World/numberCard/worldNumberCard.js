@@ -17,7 +17,8 @@ class WorldNumberCard extends React.Component {
   }
 
   async componentDidMount() {
-    const data = await numbers(this.props.city);
+    console.log(this.props.country)
+    const data = await numbers(this.props.country);
     if (!data) {
       return "Loading...";
     }

@@ -56,6 +56,17 @@ let endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
   "0" + date.getDate()
 ).slice(-2)}`;
 
+if (date.getHours() < 12) {
+  startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
+    "0" +
+    (date.getDate() - 1)
+  ).slice(-2)}`;
+  endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
+    "0" +
+    (date.getDate() - 1)
+  ).slice(-2)}`;
+}
+
 const url = `/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.REACT_APP_serviceKey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
 export const cityPicker = async () => {
@@ -67,35 +78,34 @@ export const cityPicker = async () => {
     for (const keys in items) {
       city[keys] = items[keys].nationNm;
     }
-    
+
     return city;
   } catch (e) {
     console.log(e);
   }
 };
 
-export const numbers = async(country) => {
-  try{
-    const data = await axios.get(url)
-    const items = data.data.response.body.items.item
+export const numbers = async (country) => {
+  try {
+    const data = await axios.get(url);
+    const items = data.data.response.body.items.item;
     const info = {
       numbers: {
         DPN: 0,
         Death: 0,
-        Rate: 0
+        Rate: 0,
       },
-      date: ""
+      date: "",
     };
 
-    info.numbers.DPN = items[country].natDefCnt
-    info.numbers.Death = items[country].natDeathCnt
-    info.numbers.Rate = items[country].natDeathRate
+    info.numbers.DPN = items[country].natDefCnt;
+    info.numbers.Death = items[country].natDeathCnt;
+    info.numbers.Rate = items[country].natDeathRate;
 
-    info.date = items[country].createDt.slice(0, 11)
-    
-    console.log(info)
-    return info
-  } catch(e) {
+    info.date = items[country].createDt.slice(0, 11);
 
-  }
-}
+    console.log(items)
+    console.log(info);
+    return info;
+  } catch (e) {}
+};

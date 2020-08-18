@@ -7,7 +7,7 @@ class Country extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: {},
     };
   }
 
@@ -19,7 +19,8 @@ class Country extends React.Component {
     });
   }
   render() {
-    let data = this.state.data;
+    let data = this.state.data
+    console.log(typeof(data))
     return (
       <div className={styles.form}>
         <TextField

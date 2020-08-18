@@ -8,13 +8,11 @@ import {
   ListItemIcon,
   ListItem,
 } from "@material-ui/core";
-import AcUnitIcon from "@material-ui/icons/AcUnit";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import HomeIcon from "@material-ui/icons/Home";
 import world from "../../World/world";
 import korea from "../../Korea/korea";
 import { Route } from "react-router-dom";
-import main from "../../Main/main";
 
 const drawerWidth = 240;
 

@@ -13,12 +13,13 @@ class Country extends React.Component {
 
   async componentDidMount() {
     const countryData = await countryPicker();
-    console.log(countryData);
+    console.log(typeof(countryData))
     this.setState({
       data: countryData,
     });
   }
   render() {
+    let data = this.state.data;
     return (
       <div className={styles.form}>
         <TextField
@@ -27,7 +28,7 @@ class Country extends React.Component {
           className={styles.formControl}
           onChange={(e) => this.props.handleCountryChange(e.target.value)}
         >
-          {this.state.data.map((country, i) => (
+          {data.map((country, i) => (
             <MenuItem key={i} value={i}>
               {country}
             </MenuItem>
@@ -37,17 +38,5 @@ class Country extends React.Component {
     );
   }
 }
-
-// function ItemList({ items }) {
-//   return (
-//     <React.Fragment>
-//       {items.map((country, index) => (
-//         <MenuItem key={index} value={index}>
-//           {country}
-//         </MenuItem>
-//       ))}
-//     </React.Fragment>
-//   );
-// }
 
 export default Country;

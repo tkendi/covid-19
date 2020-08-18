@@ -73,14 +73,14 @@ export const countryPicker = async () => {
   try {
     const data = await axios.get(url);
     const items = data.data.response.body.items.item;
-    const city = [];
+    let country = [];
 
     for (const keys in items) {
-      city[keys] = items[keys].nationNm;
+      country[keys] = items[keys].nationNm;
     }
 
-    console.log(city)
-    return Array.from(city);
+    country = Array.from(country)
+    return country
   } catch (e) {
     console.log(e);
   }

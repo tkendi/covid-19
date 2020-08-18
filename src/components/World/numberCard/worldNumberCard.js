@@ -12,7 +12,7 @@ class WorldNumberCard extends React.Component {
       Infected: 0,
       Rate: 0,
       Deaths: 0,
-      date: 0,
+      date: "",
     };
   }
 

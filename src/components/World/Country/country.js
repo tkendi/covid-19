@@ -13,17 +13,21 @@ class Country extends React.Component {
 
   async componentDidMount() {
     const countryData = await countryPicker();
-    console.log(typeof countryData);
     this.setState({
       data: countryData,
     });
   }
   render() {
     let data = this.state.data;
-    let country = []
-    for(const keys of Object.keys(data)) {
-      country[keys] = data[keys]
-      console.log(country)
+    let country = [];
+
+    if (data !== null) {
+      for (const keys of Object.keys(data)) {
+        country[keys] = data[keys];
+        console.log(country)
+      }
+    } else {
+      console.log('값이 비어있습니다')
     }
 
     return (

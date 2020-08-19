@@ -34,7 +34,7 @@ class Country extends React.Component {
           className={styles.formControl}
           onChange={(e) => this.props.handleCountryChange(e.target.value)}
         >
-          {data.forEach((country, index) => (
+          {data.map((country, index) => (
             <MenuItem key={index} value={index}>
               {country}
             </MenuItem>

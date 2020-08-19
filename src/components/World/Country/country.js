@@ -19,13 +19,13 @@ class Country extends React.Component {
     });
   }
   render() {
-    var data = Array.from(this.state.data);
-    // let changeData = [];
-    // for(const keys of data) {
-    //   changeData.append(keys)
-    // }
+    let data = this.state.data;
+    let country = []
+    for(const keys of Object.keys(data)) {
+      country[keys] = data[keys]
+      console.log(country)
+    }
 
-    // console.log(changeData)
     return (
       <div className={styles.form}>
         <TextField
@@ -34,9 +34,9 @@ class Country extends React.Component {
           className={styles.formControl}
           onChange={(e) => this.props.handleCountryChange(e.target.value)}
         >
-          {data.map((country, index) => (
+          {country.map((data, index) => (
             <MenuItem key={index} value={index}>
-              {country}
+              {data}
             </MenuItem>
           ))}
         </TextField>

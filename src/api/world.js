@@ -70,20 +70,17 @@ if (date.getHours() < 12) {
 const url = `/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.REACT_APP_serviceKey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
 export const countryPicker = async () => {
-  try {
-    const data = await axios.get(url);
-    const items = data.data.response.body.items.item;
-    let country = [];
+  const data = await axios.get(url);
+  const items = data.data.response.body.items.item;
+  let country = [];
 
-    for (const keys in items) {
-      country[keys] = items[keys].nationNm;
-    }
-
-    country = Array.from(country)
-    return country
-  } catch (e) {
-    console.log(e);
+  for (const keys in items) {
+    country[keys] = items[keys].nationNm;
   }
+
+  country = Array.from(country);
+
+  return country
 };
 
 export const numbers = async (country) => {
@@ -105,7 +102,7 @@ export const numbers = async (country) => {
 
     info.date = items[country].createDt.slice(0, 11);
 
-    console.log(items)
+    console.log(items);
     console.log(info);
     return info;
   } catch (e) {}

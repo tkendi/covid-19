@@ -19,16 +19,8 @@ class Country extends React.Component {
   }
   render() {
     let data = this.state.data;
-    let country = [];
-
-    if (data !== null) {
-      for (const keys of Object.keys(data)) {
-        country[keys] = data[keys];
-        console.log(country)
-      }
-    } else {
-      console.log('값이 비어있습니다')
-    }
+    data = Array.from(data)
+    console.log(typeof(data))
 
     return (
       <div className={styles.form}>
@@ -38,7 +30,7 @@ class Country extends React.Component {
           className={styles.formControl}
           onChange={(e) => this.props.handleCountryChange(e.target.value)}
         >
-          {country.map((data, index) => (
+          {data.map((data, index) => (
             <MenuItem key={index} value={index}>
               {data}
             </MenuItem>

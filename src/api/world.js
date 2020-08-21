@@ -80,9 +80,6 @@ export const countryPicker = async () => {
   }
 
   country = Array.from(country);
-
-  console.log(country)
-
   return country
 };
 

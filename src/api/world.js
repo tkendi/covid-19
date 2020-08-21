@@ -67,7 +67,7 @@ if (date.getHours() < 12) {
   ).slice(-2)}`;
 }
 
-const url = `/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.REACT_APP_serviceKey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
+const url = `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.REACT_APP_serviceKey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
 export const countryPicker = async () => {
   const data = await axios.get(url);

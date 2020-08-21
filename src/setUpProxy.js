@@ -40,7 +40,7 @@ module.exports = function(app) {
             ], {
                 //destination server
                 target: 'http://openapi.data.go.kr',
-                secure: false,  //disable SSL verification
+                secure: true,  //disable SSL verification
                 //change-Origin: true,  //for vhosted sitesm changes host header to match to target's host
                 ws: true,   //websock on
                 onProxyReq: relayRequestHeaders,

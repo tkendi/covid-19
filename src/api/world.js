@@ -71,7 +71,6 @@ const url = `/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=
 
 export const countryPicker = async () => {
   const data = await axios.get(url);
-  console.log(data)
   const items = data.data.response.body.items.item;
   let country = [];
 

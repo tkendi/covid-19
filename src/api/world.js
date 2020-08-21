@@ -60,14 +60,14 @@ if (date.getHours() < 12) {
   startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
     "0" +
     (date.getDate() - 1)
-  ).slice(-2)}`;
+  ).slice(-2)}`; 
   endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
     "0" +
     (date.getDate() - 1)
   ).slice(-2)}`;
 }
 
-const url = `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.REACT_APP_serviceKey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
+const url = `/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.REACT_APP_serviceKey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
 export const countryPicker = async () => {
   const data = await axios.get(url);

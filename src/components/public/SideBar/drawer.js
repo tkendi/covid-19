@@ -51,26 +51,26 @@ export default function SideBar() {
         anchor="left"
       >
         <div className={classes.toolbar} />
-        <ListItem button>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <Link href="/">World Status</Link>
-        </ListItem>
+
         <Divider />
         <List>
-          {/* <ListItem button>
+          <ListItem button>
             <ListItemIcon>
-              <AcUnitIcon />
+              <HomeIcon />
             </ListItemIcon>
-            <Link href="/world">World Status</Link>
-          </ListItem> */}
-
+            <Link href="/">World Status</Link>
+          </ListItem>
           <ListItem button>
             <ListItemIcon>
               <AlternateEmailIcon />
             </ListItemIcon>
             <Link href="/korea">Korea Status</Link>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <Link href = "#">Patient Route</Link>
           </ListItem>
         </List>
       </Drawer>

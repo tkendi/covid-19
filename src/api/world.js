@@ -101,7 +101,7 @@ export const numbers = async (country) => {
     info.numbers.Death = items[country].natDeathCnt;
     info.numbers.Rate = items[country].natDeathRate;
 
-    info.date = items[country].createDt.slice(0, 11);
+    info.date = items[country].createDt.slice(0, 11) - 1;
 
     console.log(items);
     console.log(info);

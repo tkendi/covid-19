@@ -26,7 +26,7 @@ class WorldNumberCard extends React.Component {
       Infected: data.numbers.DPN,
       Rate: data.numbers.Rate,
       Deaths: data.numbers.Death,
-      date: data.date,
+      date: (data.date) - 1,
     });
   }
 

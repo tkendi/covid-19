@@ -3,9 +3,12 @@ import styled from "styled-components";
 import { news } from "../../../api/news";
 import { Typography } from "@material-ui/core";
 import NewsItem from "./newsItem";
+import coronaImage from "../../../images/image.png";
+import styles from "../../style/page.module.css";
 
 const NewsListBlock = styled.div`
   box-sizing: border-box;
+  padding-top: 2.5rem;
   padding-bottom: 3rem;
   width: 768px;
   margin: 0 auto;
@@ -46,11 +49,14 @@ class newsList extends React.Component {
   render() {
     let articles = this.state.articles;
     return (
-      <NewsListBlock>
-        {articles.map(article => (
-          <NewsItem key = {articles.url} article = {article} />
-        ))}
-      </NewsListBlock>
+      <div className={styles.form}>
+        <img src={coronaImage} alt="corona" className={styles.image} />
+        <NewsListBlock>
+          {articles.map((article) => (
+            <NewsItem key={articles.url} article={article} />
+          ))}
+        </NewsListBlock>
+      </div>
     );
   }
 }

@@ -27,6 +27,7 @@ class newsList extends React.Component {
       loading: false,
     };
   }
+
   async componentDidMount() {
     const data = await news();
     console.log(data);
@@ -34,8 +35,6 @@ class newsList extends React.Component {
       articles: data.data.articles,
       loading: false,
     });
-
-    console.log(this.state.articles);
   }
 
   //Sample Data

@@ -10,8 +10,10 @@ import {
 } from "@material-ui/core";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import HomeIcon from "@material-ui/icons/Home";
+import AnnouncementIcon from "@material-ui/icons/Announcement";
 import world from "../../World/world";
 import korea from "../../Korea/korea";
+import news from "../../News/list/newsList";
 import { Route } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -68,14 +70,15 @@ export default function SideBar() {
           </ListItem>
           <ListItem button>
             <ListItemIcon>
-              <HomeIcon />
+              <AnnouncementIcon />
             </ListItemIcon>
-            <Link href = "#">Patient Route</Link>
+            <Link href="/news ">Corona News</Link>
           </ListItem>
         </List>
       </Drawer>
       <Route path="/" component={world} exact={true} />
       <Route path="/korea" component={korea} />
+      <Route path="/news" component={news} />
     </div>
   );
 }

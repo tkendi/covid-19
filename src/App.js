@@ -1,11 +1,11 @@
 import React from "react";
-import Appbar from './components/template/Appbar/Appbar'
+import SideBar from "./components/public/SideBar/drawer";
 
 class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Appbar />                                          
+        <SideBar />                                     
       </React.Fragment>
     );
   }

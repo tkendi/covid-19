@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { news } from "../../../api/news";
-import { Typography } from "@material-ui/core";
 import NewsItem from "./newsItem";
 import coronaImage from "../../../images/image.png";
 import styles from "../../style/page.module.css";
@@ -39,6 +38,7 @@ class newsList extends React.Component {
     console.log(this.state.articles);
   }
 
+  //Sample Data
   sampleArtilces = {
     title: "제목",
     description: "내용",

@@ -1,5 +1,5 @@
 import React from "react";
-import SideBar from "./components/public/SideBar/drawer";
+import SideBar from './components/template/SideBar/drawer'
 
 class App extends React.Component {
   render() {

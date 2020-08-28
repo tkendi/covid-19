@@ -1,5 +1,7 @@
 import axios from "axios";
+import * as config from '../config'
 
+const serviceKey = config.ServiceKey
 const date = new Date();
 date.setHours(date.getHours() - 1);
 //const hours = date.getHours();
@@ -21,7 +23,7 @@ if (date.getHours() < 12) {
   ).slice(-2)}`;
 }
 
-const url = `/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=${process.env.REACT_APP_ServiceKey}&pageNo=1&numOfRows=10&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
+const url = `/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=${serviceKey}&pageNo=1&numOfRows=10&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
 export const cityPicker = async () => {
   try {

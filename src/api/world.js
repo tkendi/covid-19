@@ -43,10 +43,9 @@
 //     }
 // }
 import axios from "axios";
+import * as config from '../config'
 
-const servicekey = process.env.REACT_APP_ServiceKey;
-console.log(servicekey)
-console.log(servicekey);
+const servicekey = config.ServiceKey
 const date = new Date();
 date.setHours(date.getHours() - 1);
 
@@ -69,7 +68,7 @@ if (date.getHours() < 12) {
   ).slice(-2)}`;
 }
 
-const url = `/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.REACT_APP_ServiceKey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
+const url = `/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${servicekey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
 export const countryPicker = async () => {
   const data = await axios.get(url);

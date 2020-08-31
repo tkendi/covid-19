@@ -45,13 +45,12 @@ export const numbers = async (city) => {
     const data = await axios.get(url);
     const items = data.data.response.body.items.item;
     const info = {
-      city: [],
       numbers: {
         DPN: 0,
         Death: 0,
-        Recover: 0
+        Rate: 0,
       },
-      date: ""
+      date: "",
     };
 
     for(const keys in items) {
@@ -63,6 +62,7 @@ export const numbers = async (city) => {
     info.numbers.Recover = items[city].isolClearCnt;
     info.date = items[city].createDt.slice(0, 11)
 
+    console.log(info)
     return info;
   } catch (e) {}
 };

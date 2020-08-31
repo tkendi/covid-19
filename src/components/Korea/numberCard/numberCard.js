@@ -16,22 +16,10 @@ class numberCard extends Component {
     };
   }
 
-  async componentDidMount() {
-    const data = await numbers(this.props.city);
-    if (!data) {
-      return "Loading....";
-    }
-    this.setState({
-      Infected: data.numbers.DPN,
-      Recover: data.numbers.Recover,
-      Deaths: data.nuumbers.Death,
-      date: data.date,
-    });
-  }
-
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.city !== this.props.city) {
       const data = await numbers(this.props.city);
+      console.log(data)
       this.setState({
         Infected: data.numbers.DPN,
         Recover: data.numbers.Recover,
@@ -39,7 +27,6 @@ class numberCard extends Component {
         date: data.date,
       });
     }
-    console.log(this.state);
   }
 
   render() {

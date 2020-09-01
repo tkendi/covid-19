@@ -55,10 +55,6 @@ export const numbers = async (city) => {
       date: "",
     };
 
-    for(const keys in items) {
-      info.city[keys] = items[keys].gubun
-    }
-
     info.numbers.DPN = items[city].incDec;
     info.numbers.Death = items[city].deathCnt;
     info.numbers.Recover = items[city].isolClearCnt;

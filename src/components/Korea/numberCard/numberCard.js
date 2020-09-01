@@ -17,8 +17,8 @@ class numberCard extends Component {
   }
 
   async componentDidMount() {
-    console.log(this.props.country)
-    const data = await numbers(this.props.country);
+    console.log(this.props.city)
+    const data = await numbers(this.props.city);
     if (!data) {
       return "Loading...";
     }
@@ -36,9 +36,9 @@ class numberCard extends Component {
       console.log(data)
       this.setState({
         Infected: data.numbers.DPN,
-        Recover: data.numbers.Recover,
-        Deaths: data.nuumbers.Death,
-        date: data.date,
+        Rate: data.numbers.Rate,
+        Deaths: data.numbers.Deaths,
+        date: data.date
       });
     }
   }

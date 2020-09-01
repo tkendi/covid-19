@@ -33,7 +33,7 @@ export const cityPicker = async () => {
     const items = data.data.response.body.items.item;
     const city = [];
 
-    for (const keys in items) {
+    for (const keys in items) { 
       city[keys] = items[keys].gubun;
     }
 

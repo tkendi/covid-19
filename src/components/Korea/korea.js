@@ -17,6 +17,7 @@ class Korea extends React.Component {
   };
 
   render() {
+    console.log(this.state.city)
     return (
       <div className={styles.form}>
         <img src = {coronaImage} className = {styles.image} alt = "COVID-19" />

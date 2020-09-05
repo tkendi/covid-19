@@ -25,7 +25,7 @@ if (date.getHours() < 12) {
 
 const url = `/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=${serviceKey}&pageNo=1&numOfRows=10&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
-export const cityPicker = async () => {
+export const cityPicker = async () => { 
   try {
     const data = await axios.get(url);
     const items = data.data.response.body.items.item;
@@ -37,7 +37,7 @@ export const cityPicker = async () => {
 
     console.log(city)
     return Array.from(city);
-  } catch (e) {}
+  } catch (e) {}  
 };
 
 export const numbers = async (city) => {

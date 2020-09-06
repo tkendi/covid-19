@@ -2,7 +2,7 @@ import React from "react";
 import City from "./City/city";
 import Number from "./numberCard/numberCard";
 import styles from "../style/page.module.css";
-import coronaImage from '../../images/image.png'
+import coronaImage from "../../images/image.png";
 
 class Korea extends React.Component {
   state = {
@@ -10,7 +10,7 @@ class Korea extends React.Component {
     city: "",
   };
 
-  handleCityChange = async (city, number) => {
+  handleCityChange = async (city) => {
     this.setState({
       data: city,
     });
@@ -19,7 +19,7 @@ class Korea extends React.Component {
   render() {
     return (
       <div className={styles.form}>
-        <img src = {coronaImage} className = {styles.image} alt = "COVID-19" />
+        <img src={coronaImage} className={styles.image} alt="COVID-19" />
         <City handleCityChange={this.handleCityChange} />
         <Number city={this.state.data} />
       </div>

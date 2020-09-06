@@ -48,21 +48,16 @@ export const numbers = async (city) => {
       numbers: {
         DPN: 0,
         Death: 0,
-        Rate: 0,
+        Recover: 0,
       },
       date: "",
     };
-
-    for(const keys in items) {
-      info.city[keys] = items[keys].gubun
-    }
 
     info.numbers.DPN = items[city].incDec;
     info.numbers.Death = items[city].deathCnt;
     info.numbers.Recover = items[city].isolClearCnt;
     info.date = items[city].createDt.slice(0, 11)
 
-    console.log(info)
     return info;
   } catch (e) {}
 };

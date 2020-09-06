@@ -44,28 +44,25 @@ export const numbers = async (city) => {
   try {
     const data = await axios.get(url);
     const items = data.data.response.body.items.item;
-    const numbers = {
-      DPN: 0,
-      Death: 0,
-      Recover: 0,
+    const info = {
+      numbers: {
+        DPN: 0,
+        Death: 0,
+        Rate: 0,
+      },
+      date: "",
     };
-    numbers.DPN = items[city].incDec;
-    numbers.Death = items[city].deathCnt;
-    numbers.Recover = items[city].isolClearCnt;
 
-    return numbers;
-  } catch (e) {}
-};
+    for(const keys in items) {
+      info.city[keys] = items[keys].gubun
+    }
 
-export const dateCreate = async (city) => {
-  try {
-    const data = await axios.get(url);
-    const items = data.data.response.body.items.item;
-    let date = "";
+    info.numbers.DPN = items[city].incDec;
+    info.numbers.Death = items[city].deathCnt;
+    info.numbers.Recover = items[city].isolClearCnt;
+    info.date = items[city].createDt.slice(0, 11)
 
-    date = items[city].createDt.slice(0, 11);
-    console.log(date);
-
-    return date;
+    console.log(info)
+    return info;
   } catch (e) {}
 };

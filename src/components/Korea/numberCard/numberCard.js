@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { numbers, dateCreate } from "../../../api/korea";
+import { numbers } from "../../../api/korea";
 import { Typography, Grid, CardContent, Card } from "@material-ui/core";
 import cx from "classnames";
 import CountUp from "react-countup";
@@ -16,33 +16,17 @@ class numberCard extends Component {
     };
   }
 
-  async componentDidMount() {
-    const data = await numbers(this.props.city);
-    const createDt = await dateCreate(this.props.city);
-    if (!data) {
-      return "Loading....";
-    }
-    this.setState({
-      Infected: data.DPN,
-      Recover: data.Recover,
-      Deaths: data.Death,
-      date: createDt,
-    });
-    console.log(data, createDt);
-  }
-
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.city !== this.props.city) {
       const data = await numbers(this.props.city);
-      const createDt = await dateCreate(this.props.city);
+      console.log(data)
       this.setState({
-        Infected: data.DPN,
-        Recover: data.Recover,
-        Deaths: data.Death,
-        date: createDt,
+        Infected: data.numbers.DPN,
+        Recover: data.numbers.Recover,
+        Deaths: data.nuumbers.Death,
+        date: data.date,
       });
     }
-    console.log(this.state);
   }
 
   render() {

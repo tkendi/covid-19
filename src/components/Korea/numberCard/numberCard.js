@@ -3,7 +3,7 @@ import {numbers} from '../../../api/korea'
 import { Typography, Grid, CardContent, Card } from "@material-ui/core";
 import cx from "classnames";
 import CountUp from "react-countup";
-import styles from "../../style/number.module.css"
+import styles from "../../style/number.module.css";
 
 class numberCard extends Component {
   constructor(props) {
@@ -17,27 +17,27 @@ class numberCard extends Component {
   }
 
   async componentDidMount() {
-    console.log(this.props.city)
+    console.log(this.props.city);
     const data = await numbers(this.props.city);
     if (!data) {
       return "Loading...";
     }
     this.setState({
       Infected: data.numbers.DPN,
-      Rate: data.numbers.Rate,
+      Recover: data.numbers.Recover,
       Deaths: data.numbers.Death,
-      date: data.date,
+      date: data.date
     });
   }
 
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.city !== this.props.city) {
       const data = await numbers(this.props.city);
-      console.log(data)
+      console.log(data);
       this.setState({
         Infected: data.numbers.DPN,
-        Rate: data.numbers.Rate,
-        Deaths: data.numbers.Deaths,
+        Recover: data.numbers.Recover,
+        Deaths: data.numbers.Death,
         date: data.date
       });
     }

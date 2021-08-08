@@ -43,9 +43,10 @@
 //     }
 // }
 import axios from "axios";
-import * as config from '../config'
+// import * as config from '../config'
 
-const servicekey = config.ServiceKey
+
+// const servicekey = config.ServiceKey
 const date = new Date();
 date.setHours(date.getHours() - 1);
 
@@ -58,52 +59,52 @@ let endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
 ).slice(-2)}`;
 
 if (date.getHours() < 12) {
-  startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
+    startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
     "0" +
     (date.getDate() - 1)
   ).slice(-2)}`;
-  endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
+    endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
     "0" +
     (date.getDate() - 1)
   ).slice(-2)}`;
 }
 
-const url = `/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${servicekey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
+const url = `/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=DLE6m8Us2Sxk7yd9FovdTcQqXFThhn2GivskmhhhrerKcu5AxeFp5P%2B1MtchJVra8P5dM3DbqOSfIorbU2Xdsg%3D%3D&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
-export const countryPicker = async () => {
-  const data = await axios.get(url);
-  const items = data.data.response.body.items.item;
-  let country = [];
-
-  for (const keys in items) {
-    country[keys] = items[keys].nationNm;
-  }
-
-  country = Array.from(country);
-  return country;
-};
-
-export const numbers = async (country) => {
-  try {
+export const countryPicker = async() => {
     const data = await axios.get(url);
     const items = data.data.response.body.items.item;
-    const info = {
-      numbers: {
-        DPN: 0,
-        Death: 0,
-        Rate: 0,
-      },
-      date: "",
-    };
+    let country = [];
 
-    info.numbers.DPN = items[country].natDefCnt;
-    info.numbers.Death = items[country].natDeathCnt;
-    info.numbers.Rate = items[country].natDeathRate;
+    for (const keys in items) {
+        country[keys] = items[keys].nationNm;
+    }
 
-    info.date = items[country].createDt.slice(0, 11);
+    country = Array.from(country);
+    return country;
+};
 
-    console.log(items);
-    console.log(info);
-    return info;
-  } catch (e) {}
+export const numbers = async(country) => {
+    try {
+        const data = await axios.get(url);
+        const items = data.data.response.body.items.item;
+        const info = {
+            numbers: {
+                DPN: 0,
+                Death: 0,
+                Rate: 0,
+            },
+            date: "",
+        };
+
+        info.numbers.DPN = items[country].natDefCnt;
+        info.numbers.Death = items[country].natDeathCnt;
+        info.numbers.Rate = items[country].natDeathRate;
+
+        info.date = items[country].createDt.slice(0, 11);
+
+        console.log(items);
+        console.log(info);
+        return info;
+    } catch (e) {}
 };

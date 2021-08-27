@@ -73,8 +73,14 @@
 
 import React from "react";
 import MainContainer from "containers/Main";
+import Header from "components/Header";
 
 const MainPage = () => {
-  return <MainContainer />;
+  return (
+    <>
+      <Header />
+      <MainContainer />
+    </>
+  );
 };
 export default MainPage;

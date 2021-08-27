@@ -1,10 +1,12 @@
 import React from "react";
 
 //api
-import { cityPicker } from "api/korea";
+import { getKorea } from "api/Korea/Get";
+import { getWorld } from "api/World/Get";
 
 const Main = () => {
-  console.log(cityPicker());
+  console.log(getKorea());
+  console.log(getWorld());
   return <></>;
 };
 

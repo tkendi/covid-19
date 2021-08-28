@@ -41,15 +41,28 @@ export class WorldService {
       .get(url)
       .then((res) => (data = res.data.response.body.items))
       .catch((e) => console.log(e));
+
     data.item.map((cur) => {
-      result.africa.push(data.item.find((area) => area.areaNm === '아프리카'));
-      result.europe.push(data.item.find((area) => area.areaNm === '유럽'));
-      result.america.push(data.item.find((area) => area.areaNm === '아메리카'));
-      result.middleEast.push(data.item.find((area) => area.areaNm === '중동'));
-      result.asia.push(data.item.find((area) => area.areaNm === '아시아'));
-      result.oceania.push(
-        data.item.find((area) => area.areaNm === '오세아니아'),
-      );
+      switch (cur.areaNm) {
+        case '아프리카':
+          result.africa.push(cur);
+          break;
+        case '유럽':
+          result.europe.push(cur);
+          break;
+        case '아메리카':
+          result.america.push(cur);
+          break;
+        case '중동':
+          result.middleEast.push(cur);
+          break;
+        case '아시아':
+          result.asia.push(cur);
+          break;
+        case '오세아니아':
+          result.oceania.push(cur);
+          break;
+      }
     });
     return result;
   }

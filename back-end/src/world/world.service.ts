@@ -28,7 +28,7 @@ export class WorldService {
     const url = `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.CovidOpenDataKey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
     let data;
-    let result = {
+    const result = {
       africa: [],
       oceania: [],
       europe: [],

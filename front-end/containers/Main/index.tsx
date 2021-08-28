@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 //api
@@ -7,13 +7,17 @@ import { getWorld } from "api/World/Get";
 
 //components
 import { Container } from "components/Container";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 const Main = () => {
+  const [koreaData, setKoreaData] = useState<any>();
+
   useEffect(() => {
-    console.log(getKorea());
+    getKorea().then((res) => setKoreaData(res.data));
     console.log(getWorld());
   }, []);
+
+  console.log(koreaData?.gubun);
 
   const options = {
     responsive: true,
@@ -25,86 +29,79 @@ const Main = () => {
       position: "average",
       intersect: false,
     },
-    scales: {
-      xAxes: [
-        {
-          //   position: "top", //default는 bottom
-          display: true,
-          scaleLabel: {
-            display: true,
-            labelString: "Step",
-            fontFamily: "Montserrat",
-            fontColor: "black",
-          },
-          ticks: {
-            // beginAtZero: true,
-            maxTicksLimit: 10, //x축에 표시할 최대 눈금 수
-          },
-        },
-      ],
-      yAxes: [
-        {
-          display: true,
-          //   padding: 10,
-          scaleLabel: {
-            display: true,
-            labelString: "Coverage",
-            fontFamily: "Montserrat",
-            fontColor: "black",
-          },
-          ticks: {
-            beginAtZero: true,
-            stepSize: 20,
-            min: 0,
-            max: 100,
-            //y축 scale 값에 % 붙이기 위해 사용
-            callback: function (value) {
-              return value + "%";
-            },
-          },
-        },
-      ],
-    },
+    // scales: {
+    //   xAxes: [
+    //     {
+    //       //   position: "top", //default는 bottom
+    //       display: true,
+    //       scaleLabel: {
+    //         display: true,
+    //         labelString: "Step",
+    //         fontFamily: "Montserrat",
+    //         fontColor: "black",
+    //       },
+    //       ticks: {
+    //         // beginAtZero: true,
+    //         maxTicksLimit: 10, //x축에 표시할 최대 눈금 수
+    //       },
+    //     },
+    //   ],
+    //   yAxes: [
+    //     {
+    //       display: true,
+    //       //   padding: 10,
+    //       scaleLabel: {
+    //         display: true,
+    //         labelString: "Coverage",
+    //         fontFamily: "Montserrat",
+    //         fontColor: "black",
+    //       },
+    //       ticks: {
+    //         beginAtZero: true,
+    //         stepSize: 20,
+    //         min: 100,
+    //         max: 100,
+    //       },
+    //     },
+    //   ],
+    // },
   };
 
   const data = {
-    labels: "test",
+    labels: koreaData?.slice(0, 18).map((cur: any) => cur.gubun),
     datasets: [
       //원소 1
       {
-        label: "Classes",
-        data: [...new Array(7)],
+        label: "사망자",
+        data: koreaData?.map((cur: any) => cur.deathCnt),
         lineTension: 0,
-        backgroundColor: "rgba(15, 107, 255, 0.1)",
+        backgroundColor: "rgba(255, 0, 0, 0.5)",
         borderWidth: 1,
-        borderColor: "#0f6bff",
         fill: true,
       },
-      //원소2
       {
-        label: "Methods",
-        data: 0,
+        label: "감염자",
+        data: koreaData?.map((cur: any) => cur.incDec),
         lineTension: 0,
-        backgroundColor: "rgba(242, 184, 113, 0.1)",
+        backgroundColor: "rgba(0, 255, 0, 0.2)",
         borderWidth: 1,
-        borderColor: "#f2b471",
+        fill: true,
+      },
+      {
+        label: "완치자",
+        data: koreaData?.map((cur: any) => cur.isolIngCnt),
+        lineTension: 0,
+        backgroundColor: "rgba(0, 0, 255, 0.2)",
+        borderWidth: 1,
         fill: true,
       },
     ],
   };
 
-  const legend = {
-    display: true,
-    labels: {
-      fontColor: "black",
-    },
-    position: "top", //label를 넣어주지 않으면 position이 먹히지 않음
-  };
-
   return (
     <Container>
       <Wrap>
-        <Line data={data} legend={legend} options={options} />
+        <Bar data={data} options={options} />
       </Wrap>
     </Container>
   );

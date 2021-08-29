@@ -42,7 +42,7 @@ export class WorldService {
       .then((res) => (data = res.data.response.body.items))
       .catch((e) => console.log(e));
 
-    data.item.map((cur) => {
+    data.item?.map((cur) => {
       switch (cur.areaNm) {
         case '아프리카':
           result.africa.push(cur);

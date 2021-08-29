@@ -54,26 +54,26 @@ const Main = () => {
     ],
   };
 
-  // const data2 = {
-  //   labels: worldData?.map((cur: any) => cur.nationNm),
-  //   datasets: [
-  //     //원소 1
-  //     {
-  //       label: "사망자",
-  //       data: worldData?.map((cur: any) => cur.natDeathCnt),
-  //       lineTension: 0,
-  //       backgroundColor: "rgba(255, 0, 0, 0.5)",
-  //       borderWidth: 1,
-  //       fill: true,
-  //     },
-  //   ],
-  // };
+  const data2 = {
+    labels: worldData?.africa?.map((cur: any) => cur.nationNm),
+    datasets: [
+      //원소 1
+      {
+        label: "사망자",
+        data: worldData?.africa?.map((cur: any) => cur.natDeathCnt),
+        lineTension: 0,
+        backgroundColor: "rgba(255, 0, 0, 0.5)",
+        borderWidth: 1,
+        fill: true,
+      },
+    ],
+  };
 
   return (
     <Container>
       <Wrap>
         <Bar data={data} options={options} />
-        {/* <Bar data={data2} options={options} /> */}
+        <Bar data={data2} options={options} />
       </Wrap>
     </Container>
   );

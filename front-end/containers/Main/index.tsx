@@ -157,7 +157,7 @@ const Main = () => {
       </Wrap>
     </Container>
   );
-};
+};  
 
 export default Main;
 

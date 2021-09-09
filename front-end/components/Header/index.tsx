@@ -1,20 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import { observer } from "mobx-react";
 
 //components
 import { Container } from "components/Container";
 
-const Header = () => {
+//store
+import MainStore from "stpres/main";
+
+const Header = observer(() => {
   return (
     <Nav>
       <CustomContainer>
         <Wrap>
           <Title>COVID</Title>
           <MenuWrap>
-            <Menu>
+            <Menu onClick={() => (MainStore.isShow = true)}>
               <LinkTitle>World</LinkTitle>
             </Menu>
-            <Menu>
+            <Menu onClick={() => (MainStore.isShow = false)}>
               <LinkTitle>Korea</LinkTitle>
             </Menu>
           </MenuWrap>
@@ -22,7 +26,7 @@ const Header = () => {
       </CustomContainer>
     </Nav>
   );
-};
+});
 
 export default Header;
 

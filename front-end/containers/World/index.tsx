@@ -28,6 +28,14 @@ const World = () => {
         borderWidth: 1,
         fill: true,
       },
+      {
+        label: "확진자",
+        data: worldData?.africa?.map((cur: any) => cur.natDefCnt),
+        lineTension: 0,
+        backgroundColor: "rgba(0, 255, 0, 0.2)",
+        borderWidth: 1,
+        fill: true,
+      },
     ],
   };
 
@@ -40,6 +48,14 @@ const World = () => {
         data: worldData?.america?.map((cur: any) => cur.natDeathCnt),
         lineTension: 0,
         backgroundColor: "rgba(255, 0, 0, 0.5)",
+        borderWidth: 1,
+        fill: true,
+      },
+      {
+        label: "확진자",
+        data: worldData?.america?.map((cur: any) => cur.natDefCnt),
+        lineTension: 0,
+        backgroundColor: "rgba(0, 255, 0, 0.2)",
         borderWidth: 1,
         fill: true,
       },
@@ -58,6 +74,14 @@ const World = () => {
         borderWidth: 1,
         fill: true,
       },
+      {
+        label: "확진자",
+        data: worldData?.asia?.map((cur: any) => cur.natDefCnt),
+        lineTension: 0,
+        backgroundColor: "rgba(0, 255, 0, 0.2)",
+        borderWidth: 1,
+        fill: true,
+      },
     ],
   };
 
@@ -70,6 +94,14 @@ const World = () => {
         data: worldData?.europe?.map((cur: any) => cur.natDeathCnt),
         lineTension: 0,
         backgroundColor: "rgba(255, 0, 0, 0.5)",
+        borderWidth: 1,
+        fill: true,
+      },
+      {
+        label: "확진자",
+        data: worldData?.europe?.map((cur: any) => cur.natDefCnt),
+        lineTension: 0,
+        backgroundColor: "rgba(0, 255, 0, 0.2)",
         borderWidth: 1,
         fill: true,
       },
@@ -88,6 +120,14 @@ const World = () => {
         borderWidth: 1,
         fill: true,
       },
+      {
+        label: "확진자",
+        data: worldData?.middleEast?.map((cur: any) => cur.natDefCnt),
+        lineTension: 0,
+        backgroundColor: "rgba(0, 255, 0, 0.2)",
+        borderWidth: 1,
+        fill: true,
+      },
     ],
   };
 
@@ -100,6 +140,14 @@ const World = () => {
         data: worldData?.oceania?.map((cur: any) => cur.natDeathCnt),
         lineTension: 0,
         backgroundColor: "rgba(255, 0, 0, 0.5)",
+        borderWidth: 1,
+        fill: true,
+      },
+      {
+        label: "확진자",
+        data: worldData?.oceania?.map((cur: any) => cur.natDefCnt),
+        lineTension: 0,
+        backgroundColor: "rgba(0, 255, 0, 0.2)",
         borderWidth: 1,
         fill: true,
       },

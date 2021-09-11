@@ -14,12 +14,12 @@ const Header = observer(() => {
       <CustomContainer>
         <Wrap>
           <Title>COVID</Title>
-          <MenuWrap>
-            <Menu onClick={() => (MainStore.isShow = true)}>
-              <LinkTitle>World</LinkTitle>
-            </Menu>
+          <MenuWrap>  
             <Menu onClick={() => (MainStore.isShow = false)}>
               <LinkTitle>Korea</LinkTitle>
+            </Menu>
+            <Menu onClick={() => (MainStore.isShow = true)}>
+              <LinkTitle>World</LinkTitle>  
             </Menu>
           </MenuWrap>
         </Wrap>

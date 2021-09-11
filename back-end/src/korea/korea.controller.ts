@@ -10,4 +10,9 @@ export class KoreaController {
   getKorea(): any {
     return this.koreaService.getKorea();
   }
+
+  @Get('/month')
+  getKoreaMonth(): any {
+    return this.koreaService.getKoreaMonth();
+  }
 }

@@ -24,7 +24,7 @@ const Korea = () => {
         fill: true,
       },
       {
-        label: "감염자",
+        label: "확진자",
         data: koreaData?.slice(0, 18).map((cur: any) => cur.incDec),
         lineTension: 0,
         backgroundColor: "rgba(0, 255, 0, 0.2)",

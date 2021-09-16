@@ -39,7 +39,11 @@ export class WorldService {
 
     await axios
       .get(url)
-      .then((res) => (data = res.data.response.body.items))
+      .then((res) => {
+        if (res.data.response.body.items.length > 0) {
+          data = res.data.response.body.items;
+        }
+      })
       .catch((e) => console.log(e));
 
     data.item?.map((cur) => {
@@ -64,6 +68,8 @@ export class WorldService {
           break;
       }
     });
+
+    console.log('asdf', data);
     return result;
   }
 }

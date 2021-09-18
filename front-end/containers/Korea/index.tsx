@@ -32,7 +32,7 @@ const Korea = () => {
         fill: true,
       },
       {
-        label: "완치자",
+        label: "누적 완치자",
         data: koreaData?.slice(0, 18).map((cur: any) => cur.isolIngCnt),
         lineTension: 0,
         backgroundColor: "rgba(0, 0, 255, 0.2)",

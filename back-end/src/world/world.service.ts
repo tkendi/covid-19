@@ -40,11 +40,12 @@ export class WorldService {
     await axios
       .get(url)
       .then((res) => {
-        if (res.data.response.body.items.length > 0) {
+        if (res.data.response.body.items?.item.length > 0) {
           data = res.data.response.body.items;
         }
       })
       .catch((e) => console.log(e));
+
 
     data.item?.map((cur) => {
       switch (cur.areaNm) {

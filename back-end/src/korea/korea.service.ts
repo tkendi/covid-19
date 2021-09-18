@@ -66,16 +66,12 @@ export class KoreaService {
 
     let data;
 
-    console.log(startDt);
+    console.log('@start Date', startDt, '@end Date', endDt);
 
     await axios
       .get(url)
       .then((res) => (data = res.data.response.body.items))
       .catch((e) => console.log(e));
-    return data.item
-      .filter((cur) => cur.gubun === '합계')
-      .filter(
-        (cur) => new Date(cur.createDt).getDate() === new Date().getDate(),
-      );
+    return data.item.filter((cur) => cur.gubun === '합계');
   }
 }

@@ -46,7 +46,6 @@ export class WorldService {
       })
       .catch((e) => console.log(e));
 
-
     data.item?.map((cur) => {
       switch (cur.areaNm) {
         case '아프리카':
@@ -69,8 +68,7 @@ export class WorldService {
           break;
       }
     });
-
-    console.log('asdf', data);
+    
     return result;
   }
 }

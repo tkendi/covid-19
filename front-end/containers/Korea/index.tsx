@@ -3,6 +3,7 @@ import { Bar } from "react-chartjs-2";
 
 //api
 import { getKorea } from "api/Korea/Get";
+import { Container } from "components/Container";
 
 const Korea = () => {
   const [koreaData, setKoreaData] = useState<any>();
@@ -46,7 +47,11 @@ const Korea = () => {
     responsive: true,
     maintainAspectRatio: true,
   };
-  return <Bar data={data} options={options} />;
+  return (
+    <Container>
+      <Bar data={data} options={options} />
+    </Container>
+  );
 };
 
 export default Korea;

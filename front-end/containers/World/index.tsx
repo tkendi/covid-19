@@ -3,6 +3,7 @@ import { Bar } from "react-chartjs-2";
 
 //api
 import { getWorld } from "api/World/Get";
+import { Container } from "components/Container";
 
 const World = () => {
   const [worldData, setWorldData] = useState<any>();
@@ -155,14 +156,14 @@ const World = () => {
   };
 
   return (
-    <>
+    <Container>
       <Bar data={data2} options={options} />
       <Bar data={data3} options={options} />
       <Bar data={data4} options={options} />
       <Bar data={data5} options={options} />
       <Bar data={data6} options={options} />
       <Bar data={data7} options={options} />
-    </>
+    </Container>
   );
 };
 

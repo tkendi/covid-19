@@ -1,32 +1,31 @@
 import React from "react";
 import styled from "styled-components";
-import { observer } from "mobx-react";
+import { useRouter } from "next/router";
 
 //components
 import { Container } from "components/Container";
 
-//store
-import MainStore from "stpres/main";
+const Header = () => {
+  const router = useRouter();
 
-const Header = observer(() => {
   return (
     <Nav>
       <CustomContainer>
         <Wrap>
           <Title>COVID</Title>
-          <MenuWrap>  
-            <Menu onClick={() => (MainStore.isShow = false)}>
+          <MenuWrap>
+            <Menu onClick={() => router.push("/korea")}>
               <LinkTitle>Korea</LinkTitle>
             </Menu>
-            <Menu onClick={() => (MainStore.isShow = true)}>
-              <LinkTitle>World</LinkTitle>  
+            <Menu onClick={() => router.push("/world")}>
+              <LinkTitle>World</LinkTitle>
             </Menu>
           </MenuWrap>
         </Wrap>
       </CustomContainer>
     </Nav>
   );
-});
+};
 
 export default Header;
 

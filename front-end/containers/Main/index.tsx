@@ -1,31 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { observer } from "mobx-react";
 
 //components
 import { Container } from "components/Container";
 
-//containers
-import Korea from "containers/Korea";
-import World from "containers/World";
+//container
+import KoreaMonth from "containers/Korea/Month";
 
-//store
-import MainStore from "stpres/main";
-
-const Main = observer(() => {
-  useEffect(() => {
-    MainStore.reset();
-  }, []);
-
+const Main = () => {
   return (
     <Container>
       <Wrap>
-        {!MainStore.isShow && <Korea />}
-        {MainStore.isShow && <World />}
+        <KoreaMonth />
       </Wrap>
     </Container>
   );
-});
+};
 
 export default Main;
 

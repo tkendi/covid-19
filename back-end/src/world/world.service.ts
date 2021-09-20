@@ -25,7 +25,7 @@ export class WorldService {
       )}${('0' + (date.getDate() - 1)).slice(-2)}`;
     }
 
-    const url = `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.CovidOpenDataKey}&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
+    const url = `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19NatInfStateJson?serviceKey=${process.env.CovidOpenDataKey}`;
 
     let data;
     const result = {
@@ -38,13 +38,56 @@ export class WorldService {
     };
 
     await axios
-      .get(url)
-      .then((res) => {
-        if (res.data.response.body.items?.item.length > 0) {
+      .get(url + `&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`)
+      .then(async (res) => {
+        if (res.data.response.body.items?.item !== undefined) {
+          console.log('check');
           data = res.data.response.body.items;
+        } else {
+          startDt = `${date.getFullYear()}${('0' + (date.getMonth() + 1)).slice(
+            -2,
+          )}${('0' + (date.getDate() - 1)).slice(-2)}`;
+
+          endDt = `${date.getFullYear()}${('0' + (date.getMonth() + 1)).slice(
+            -2,
+          )}${('0' + (date.getDate() - 1)).slice(-2)}`;
+
+          await axios
+            .get(
+              url + `&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`,
+            )
+            .then(async (res) => {
+              if (res.data.response.body.items?.item !== undefined) {
+                console.log('check2');
+                data = res.data.response.body.items;
+              } else {
+                startDt = `${date.getFullYear()}${(
+                  '0' +
+                  (date.getMonth() + 1)
+                ).slice(-2)}${('0' + (date.getDate() - 2)).slice(-2)}`;
+
+                endDt = `${date.getFullYear()}${(
+                  '0' +
+                  (date.getMonth() + 1)
+                ).slice(-2)}${('0' + (date.getDate() - 2)).slice(-2)}`;
+
+                await axios
+                  .get(
+                    url +
+                      `&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`,
+                  )
+                  .then((res) => {
+                    // console.log('check3', res.data.response.body.items);
+                    data = res.data.response.body.items;
+                  })
+                  .catch((e) => console.log('error: ', e.response.data));
+              }
+            })
+            .catch((e) => console.log('error: ', e.response.data));
         }
       })
       .catch((e) => console.log(e));
+
 
     data.item?.map((cur) => {
       switch (cur.areaNm) {
@@ -68,7 +111,7 @@ export class WorldService {
           break;
       }
     });
-    
+
     return result;
   }
 }

@@ -12,7 +12,7 @@ const Header = () => {
     <Nav>
       <CustomContainer>
         <Wrap>
-          <Title>COVID</Title>
+          <Title onClick={() => router.push("/")}>COVID</Title>
           <MenuWrap>
             <Menu onClick={() => router.push("/korea")}>
               <LinkTitle>Korea</LinkTitle>
@@ -51,6 +51,8 @@ const Title = styled.h1`
   font-size: 30px;
   display: flex;
   white-space: pre;
+  user-select: none;
+  cursor: pointer;
 `;
 
 const MenuWrap = styled.div`

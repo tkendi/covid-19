@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled, { ThemeConsumer } from "styled-components";
 import { Line } from "react-chartjs-2";
 
@@ -6,26 +6,32 @@ import { Line } from "react-chartjs-2";
 import { getKoreaMonth } from "api/Korea/Get";
 
 const KoreaMonth = () => {
+  const [perMonthData, setPerMonthData] = useState<any>([]);
+
+  useEffect(() => {
+    getKoreaMonth()
+      .then((res) => setPerMonthData(res.data))
+      .catch((err) => console.log(err.data.response));
+  }, []);
+
   const data = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    labels: perMonthData?.map((cur: any) => cur.stdDay.slice(6, -3)),
     datasets: [
       {
-        label: "First dataset",
-        data: [33, 53, 85, 41, 44, 65],
+        label: "사망자",
+        data: perMonthData.map((cur: any) => cur.deathCnt),
         fill: true,
         backgroundColor: "rgba(75,192,192,0.2)",
         borderColor: "rgba(75,192,192,1)",
       },
       {
-        label: "Second dataset",
-        data: [33, 25, 35, 51, 54, 76],
+        label: "확진자",
+        data: perMonthData.map((cur: any) => cur.defCnt),
         fill: false,
         borderColor: "#742774",
       },
     ],
   };
-
-  console.log(getKoreaMonth());
 
   return (
     <ThemeConsumer>

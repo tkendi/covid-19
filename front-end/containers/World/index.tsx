@@ -4,12 +4,17 @@ import { Bar } from "react-chartjs-2";
 //api
 import { getWorld } from "api/World/Get";
 import { Container } from "components/Container";
+import SkeletonShow from "./_fragments/SkeletonShow";
 
 const World = () => {
+  const [loading, setLoading] = useState(true);
   const [worldData, setWorldData] = useState<any>();
 
   useEffect(() => {
-    getWorld().then((res) => setWorldData(res.data));
+    getWorld().then((res) => {
+      setWorldData(res.data);
+      setLoading(false);
+    });
   }, []);
 
   const options = {
@@ -157,12 +162,18 @@ const World = () => {
 
   return (
     <Container>
-      <Bar data={data2} options={options} />
-      <Bar data={data3} options={options} />
-      <Bar data={data4} options={options} />
-      <Bar data={data5} options={options} />
-      <Bar data={data6} options={options} />
-      <Bar data={data7} options={options} />
+      {loading ? (
+        <SkeletonShow />
+      ) : (
+        <>
+          <Bar data={data2} options={options} />
+          <Bar data={data3} options={options} />
+          <Bar data={data4} options={options} />
+          <Bar data={data5} options={options} />
+          <Bar data={data6} options={options} />
+          <Bar data={data7} options={options} />
+        </>
+      )}
     </Container>
   );
 };

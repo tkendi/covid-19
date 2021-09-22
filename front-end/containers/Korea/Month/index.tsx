@@ -15,20 +15,21 @@ const KoreaMonth = () => {
   }, []);
 
   const data = {
-    labels: perMonthData?.map((cur: any) => cur.stdDay.slice(6, -3)),
+    labels: perMonthData?.reverse().map((cur: any) => cur.stdDay.slice(6, -3)),
     datasets: [
       {
         label: "사망자",
-        data: perMonthData.map((cur: any) => cur.deathCnt),
+        data: perMonthData?.reverse().map((cur: any) => cur.deathCnt),
         fill: true,
-        backgroundColor: "rgba(75,192,192,0.2)",
-        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        borderColor: "rgba(0, 0, 0, 0.5)",
       },
       {
         label: "확진자",
-        data: perMonthData.map((cur: any) => cur.defCnt),
-        fill: false,
-        borderColor: "#742774",
+        data: perMonthData?.reverse().map((cur: any) => cur.defCnt),
+        fill: true,
+        backgroundColor: "rgba(255, 0, 0, 0.5)",
+        borderColor: "rgba(255, 0, 0, 0.5)",
       },
     ],
   };

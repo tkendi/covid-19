@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class WorldService {
+  //today world data
   async getWorld(): Promise<any> {
     const date = new Date();
     date.setHours(date.getHours() - 1);

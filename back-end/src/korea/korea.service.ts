@@ -43,7 +43,6 @@ export class KoreaService {
   async getKoreaMonth(): Promise<any> {
     const date = new Date();
     date.setHours(date.getHours() - 1);
-    //const hours = date.getHours();
     let startDt = `${date.getFullYear()}${('0' + (date.getMonth() - 5)).slice(
       -2,
     )}${('0' + date.getDate()).slice(-2)}`;
@@ -64,14 +63,12 @@ export class KoreaService {
 
     const url = `http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=${process.env.CovidOpenDataKey}&pageNo=1&numOfRows=10&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 
-    let data;
-
-    console.log('@start Date', startDt, '@end Date', endDt);
+    let data: any = [];
 
     await axios
       .get(url)
       .then((res) => (data = res.data.response.body.items))
       .catch((e) => console.log(e));
-    return data.item.filter((cur) => cur.gubun === '합계');
+    return data?.item.filter((cur: any) => cur?.gubun === '합계');
   }
 }

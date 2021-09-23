@@ -6,7 +6,6 @@ export class WorldService {
   async getWorld(): Promise<any> {
     const date = new Date();
     date.setHours(date.getHours() - 1);
-    //const hours = date.getHours();
     let startDt = `${date.getFullYear()}${('0' + (date.getMonth() + 1)).slice(
       -2,
     )}${('0' + date.getDate()).slice(-2)}`;
@@ -41,7 +40,6 @@ export class WorldService {
       .get(url + `&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`)
       .then(async (res) => {
         if (res.data.response.body.items?.item !== undefined) {
-          console.log('check');
           data = res.data.response.body.items;
         } else {
           startDt = `${date.getFullYear()}${('0' + (date.getMonth() + 1)).slice(
@@ -58,7 +56,6 @@ export class WorldService {
             )
             .then(async (res) => {
               if (res.data.response.body.items?.item !== undefined) {
-                console.log('check2');
                 data = res.data.response.body.items;
               } else {
                 startDt = `${date.getFullYear()}${(
@@ -77,17 +74,15 @@ export class WorldService {
                       `&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`,
                   )
                   .then((res) => {
-                    // console.log('check3', res.data.response.body.items);
                     data = res.data.response.body.items;
                   })
-                  .catch((e) => console.log('error: ', e.response.data));
+                  .catch((e) => console.error('error: ', e.response.data));
               }
             })
-            .catch((e) => console.log('error: ', e.response.data));
+            .catch((e) => console.error('error: ', e.response.data));
         }
       })
-      .catch((e) => console.log(e));
-
+      .catch((e) => console.error('error: ', e));
 
     data.item?.map((cur) => {
       switch (cur.areaNm) {

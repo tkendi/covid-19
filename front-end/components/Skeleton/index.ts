@@ -11,7 +11,7 @@
  */
 
 import styled, { css } from "styled-components";
-import { loading } from "./animation";
+import { loading } from "styles/animation";
 
 interface StyleProps {
   width?: number;

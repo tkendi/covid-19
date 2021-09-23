@@ -49,6 +49,7 @@ const Korea = () => {
   };
   return (
     <Container>
+      <h3>Korea Data</h3>
       <Bar data={data} options={options} />
     </Container>
   );

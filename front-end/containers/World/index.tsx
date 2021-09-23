@@ -4,7 +4,7 @@ import { Bar } from "react-chartjs-2";
 //api
 import { getWorld } from "api/World/Get";
 import { Container } from "components/Container";
-import SkeletonShow from "./_fragments/SkeletonShow";
+import Spinner from "components/Spinner";
 
 const World = () => {
   const [loading, setLoading] = useState(true);
@@ -163,14 +163,20 @@ const World = () => {
   return (
     <Container>
       {loading ? (
-        <SkeletonShow />
+        <Spinner />
       ) : (
         <>
+          <h3>Africa Data</h3>
           <Bar data={data2} options={options} />
+          <h3>America Data</h3>
           <Bar data={data3} options={options} />
+          <h3>Assia Data</h3>
           <Bar data={data4} options={options} />
+          <h3>Europe Data</h3>
           <Bar data={data5} options={options} />
+          <h3>MiddleEast Data</h3>
           <Bar data={data6} options={options} />
+          <h3>Oceania Data</h3>
           <Bar data={data7} options={options} />
         </>
       )}

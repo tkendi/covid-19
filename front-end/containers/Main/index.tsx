@@ -11,6 +11,7 @@ const Main = () => {
   return (
     <Container>
       <Wrap>
+        <h3>Korea Per Month Data</h3>
         <KoreaMonth />
       </Wrap>
     </Container>
@@ -21,5 +22,6 @@ export default Main;
 
 const Wrap = styled.div`
   width: 100%;
-  margin-top: 50px;
+  /* margin-top: 50px; */
+  text-align: center;
 `;

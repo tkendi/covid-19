@@ -12,3 +12,9 @@ export const loading = keyframes`
     background-position: 100% 50%;
   }
 `;
+
+export const spinner = keyframes`
+  100% {
+    transform: rotate(360deg);
+  }
+`;

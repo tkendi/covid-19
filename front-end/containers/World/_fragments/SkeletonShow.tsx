@@ -34,6 +34,7 @@ const SkeletonShow = () => {
               return <SkeletonVertical key={index} />;
             })}
           </SkeletonWrap>
+          {/* <Spinner /> */}
         </Wrap>
       )}
     </ThemeConsumer>
@@ -45,7 +46,6 @@ export default SkeletonShow;
 const Wrap = styled.div`
   margin-top: 80px;
   display: flex;
-  /* flex-flow: row wrap; */
 `;
 
 const SkeletonWrap = styled.div`

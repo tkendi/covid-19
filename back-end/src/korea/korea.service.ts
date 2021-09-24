@@ -70,6 +70,7 @@ export class KoreaService {
       .get(url)
       .then((res) => (data = res.data.response.body.items))
       .catch((e) => console.log('error: ', e));
+    // console.log("data", data?.item.filter((cur: any) => cur?.gubun === '합계').slice(0, 32))
     return data?.item.filter((cur: any) => cur?.gubun === '합계').slice(0, 32);
   }
 }

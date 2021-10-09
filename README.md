@@ -1,10 +1,8 @@
 # covid-19
 
 
-## Staack
-
+## Stack
 ## Front-end
 ### next.js
-
 ## Back-end
 ### nest.js

@@ -3,8 +3,8 @@
 
 ## Staack
 
-##Front-end
+## Front-end
 ### next.js
 
-##Back-end
+## Back-end
 ### nest.js

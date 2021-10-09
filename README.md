@@ -8,15 +8,15 @@
 
 - `./api`
 - `./components`
+- `./constants`
 - `./containers`
   - `[page]`
     - `_fragments`
       - `[components]`
     - `index.tsx`
-- `./layout`
 - `./pages`
 - `./stores`
 - `./public`
-- `./utils`
+- `./styles`
 ## Back-end
 ### nest.js

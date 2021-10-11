@@ -46,6 +46,21 @@ const Korea = () => {
   const options = {
     responsive: true,
     maintainAspectRatio: true,
+    scales: {
+      yAxes: [
+        {
+          stacked: true,
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          stacked: true,
+        },
+      ],
+    },
   };
   return (
     <Container>

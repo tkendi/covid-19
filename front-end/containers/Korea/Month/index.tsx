@@ -18,14 +18,14 @@ const KoreaMonth = () => {
     labels: perMonthData?.reverse().map((cur: any) => cur.stdDay.slice(6, -3)),
     datasets: [
       {
-        label: "사망자",
+        label: "누적 사망자",
         data: perMonthData.map((cur: any) => cur.deathCnt),
         fill: true,
         backgroundColor: "rgba(0, 0, 0, 0.5)",
         borderColor: "rgba(0, 0, 0, 0.5)",
       },
       {
-        label: "확진자",
+        label: "누적 확진자",
         data: perMonthData?.map((cur: any) => cur.defCnt),
         fill: true,
         backgroundColor: "rgba(255, 0, 0, 0.5)",

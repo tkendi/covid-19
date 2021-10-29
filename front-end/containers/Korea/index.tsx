@@ -13,12 +13,12 @@ const Korea = () => {
   }, []);
 
   const data = {
-    labels: koreaData?.slice(0, 18).map((cur: any) => cur.gubun),
+    labels: koreaData?.map((cur: any) => cur.gubun),
     datasets: [
       //원소 1
       {
-        label: "사망자",
-        data: koreaData?.slice(0, 18).map((cur: any) => cur.deathCnt),
+        label: "누적 사망자",
+        data: koreaData?.map((cur: any) => cur.deathCnt),
         lineTension: 0,
         backgroundColor: "rgba(255, 0, 0, 0.5)",
         borderWidth: 1,
@@ -26,15 +26,15 @@ const Korea = () => {
       },
       {
         label: "확진자",
-        data: koreaData?.slice(0, 18).map((cur: any) => cur.incDec),
+        data: koreaData?.map((cur: any) => cur.incDec),
         lineTension: 0,
         backgroundColor: "rgba(0, 255, 0, 0.2)",
         borderWidth: 1,
         fill: true,
       },
       {
-        label: "누적 완치자",
-        data: koreaData?.slice(0, 18).map((cur: any) => cur.isolIngCnt),
+        label: "치료중",
+        data: koreaData?.map((cur: any) => cur.isolIngCnt),
         lineTension: 0,
         backgroundColor: "rgba(0, 0, 255, 0.2)",
         borderWidth: 1,

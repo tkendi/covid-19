@@ -3,7 +3,7 @@
 
 ## Stack
 ## Front-end
-### next.js
+### next.js, react, mobx
 **Project Structure**
 - `./api`
 - `./components`
@@ -19,7 +19,7 @@
 - `./styles`
 
 ## Back-end
-### nest.js
+### nest.js, axios
 **Project Structure**
 - `src`
   - `./korea`

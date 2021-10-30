@@ -31,4 +31,14 @@ export class KoreaController {
   getKoreaMonth(): any {
     return this.koreaService.getKoreaMonth();
   }
+
+  @Get('/total')
+  @ApiOperation({
+    summary: 'korea data total test',
+    description: 'korea data total delaying test',
+  })
+  @ApiResponse({ description: 'korea total data testing' })
+  getKoreaTotalTest(): any {
+    return this.koreaService.getKoreaTotalTest();
+  }
 }

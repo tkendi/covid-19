@@ -40,6 +40,7 @@ const Korea = () => {
         borderWidth: 1,
         fill: true,
       },
+      // { label: new Date(), data: 0, backgroundColor: "transparent" },
     ],
   };
 

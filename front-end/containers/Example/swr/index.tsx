@@ -8,12 +8,13 @@ const ExampleSwr = () => {
 
   const { data, error } = useSWR("http://locahost:8000/api/korea", getKorea);
 
-  if(!error) {
-      console.log(data?.data)
+  if (!data) {
+    console.log("delay");
   } else {
-      console.error(error)
+    console.log(data);
   }
 
+  if (error) console.error(error);
   return <></>;
 };
 
